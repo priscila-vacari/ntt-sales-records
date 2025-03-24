@@ -1,0 +1,26 @@
+@Sales.API_HostAddress = http://localhost:5107
+
+GET {{Sales.API_HostAddress}}/api/v1/Sales/1
+Accept: application/json
+
+###
+
+GET {{Sales.API_HostAddress}}/api/v1/Sales?page=1&pageSize=10&orderBy=-number&orderBy=customer
+Accept: application/json
+
+###
+
+POST {{Sales.API_HostAddress}}/api/v1/Sales
+Accept: application/json
+
+###
+
+PUT {{Sales.API_HostAddress}}/api/v1/Sales/1
+Accept: application/json
+
+###
+
+DEL {{Sales.API_HostAddress}}/api/v1/Sales/1
+Accept: application/json
+
+###

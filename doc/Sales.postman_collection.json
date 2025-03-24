@@ -1,0 +1,1301 @@
+{
+	"info": {
+		"_postman_id": "3d21ff25-b0f6-4321-a2b6-33c9670e5b89",
+		"name": "Sales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4238552"
+	},
+	"item": [
+		{
+			"name": "Get sale by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7057/api/v1/Sales/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7057",
+					"path": [
+						"api",
+						"v1",
+						"Sales",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://localhost:7057/api/v1/Sales/1' \\\r\n  -H 'accept: */*'"
+			},
+			"response": [
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:20:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "e7f82795-ec24-45f4-9743-3645e73e61e7"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"number\": \"12\",\n    \"date\": \"2025-03-24T00:00:00\",\n    \"customer\": \"Priscila\",\n    \"totalValue\": 291.41,\n    \"branch\": \"Santos\",\n    \"isCancelled\": true,\n    \"itens\": [\n        {\n            \"saleId\": 1,\n            \"productId\": 12,\n            \"quantity\": 6,\n            \"unitPrice\": 5.94,\n            \"discount\": 10,\n            \"totalValue\": 32.08\n        },\n        {\n            \"saleId\": 1,\n            \"productId\": 24,\n            \"quantity\": 1,\n            \"unitPrice\": 13.57,\n            \"discount\": 0,\n            \"totalValue\": 13.57\n        },\n        {\n            \"saleId\": 1,\n            \"productId\": 36,\n            \"quantity\": 15,\n            \"unitPrice\": 20.48,\n            \"discount\": 20,\n            \"totalValue\": 245.76\n        }\n    ]\n}"
+				},
+				{
+					"name": "Not Found Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales/444",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales",
+								"444"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:20:27 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "7d08fbb0-452b-4d6c-99b6-480b10170da6"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"CorrelationId\": \"7d08fbb0-452b-4d6c-99b6-480b10170da6\",\n    \"Error\": \"Venda não encontrada para o id.\",\n    \"Details\": \"\",\n    \"StackTrace\": \"   at Sales.Application.Handlers.GetSaleByIdHandler.Handle(GetSaleByIdQuery request, CancellationToken cancellationToken) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Application\\\\Handlers\\\\GetSaleByIdHandler.cs:line 27\\r\\n   at Sales.API.Controllers.v1.SaleController.GetSaleById(Int32 id) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.API\\\\Controllers\\\\v1\\\\SaleController.cs:line 34\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\",\n    \"FieldErrors\": null\n}"
+				},
+				{
+					"name": "InternalServerError Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales",
+								"1"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:36:26 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "9bdb6e78-8278-4825-aa6f-5734f6f6ddfb"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"CorrelationId\": \"9bdb6e78-8278-4825-aa6f-5734f6f6ddfb\",\n    \"Error\": \"Nome de objeto 'sales' inválido.\",\n    \"Details\": \"\",\n    \"StackTrace\": \"   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()\\r\\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\\r\\n--- End of stack trace from previous location ---\\r\\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\\r\\n   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)\\r\\n--- End of stack trace from previous location ---\\r\\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()\\r\\n   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)\\r\\n   at Sales.InfraEstructure.Repositories.Repository`1.GetByIdAsyncIncludes(Int32 id, Expression`1[] includes) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Infra\\\\Repositories\\\\Repository.cs:line 50\\r\\n   at Sales.Application.Handlers.GetSaleByIdHandler.Handle(GetSaleByIdQuery request, CancellationToken cancellationToken) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Application\\\\Handlers\\\\GetSaleByIdHandler.cs:line 27\\r\\n   at Sales.API.Controllers.v1.SaleController.GetSaleById(Int32 id) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.API\\\\Controllers\\\\v1\\\\SaleController.cs:line 34\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\",\n    \"FieldErrors\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all sales with pagination",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7057/api/v1/Sales?page=1&pageSize=10&orderBy=-number&orderBy=customer",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7057",
+					"path": [
+						"api",
+						"v1",
+						"Sales"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "orderBy",
+							"value": "-number"
+						},
+						{
+							"key": "orderBy",
+							"value": "customer"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://localhost:7057/api/v1/Sales?page=1&pageSize=10&orderBy=-number&orderBy=customer' \\\r\n  -H 'accept: */*'"
+			},
+			"response": [
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales?page=1&pageSize=10&orderBy=-number&orderBy=customer",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "orderBy",
+									"value": "-number"
+								},
+								{
+									"key": "orderBy",
+									"value": "customer"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:22:34 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "dc758e94-4313-480d-b7f4-6ada279b59cd"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"number\": \"12\",\n        \"date\": \"2025-03-24T00:00:00\",\n        \"customer\": \"Priscila\",\n        \"totalValue\": 291.41,\n        \"branch\": \"Santos\",\n        \"isCancelled\": true,\n        \"itens\": [\n            {\n                \"saleId\": 1,\n                \"productId\": 12,\n                \"quantity\": 6,\n                \"unitPrice\": 5.94,\n                \"discount\": 10,\n                \"totalValue\": 32.08\n            },\n            {\n                \"saleId\": 1,\n                \"productId\": 24,\n                \"quantity\": 1,\n                \"unitPrice\": 13.57,\n                \"discount\": 0,\n                \"totalValue\": 13.57\n            },\n            {\n                \"saleId\": 1,\n                \"productId\": 36,\n                \"quantity\": 15,\n                \"unitPrice\": 20.48,\n                \"discount\": 20,\n                \"totalValue\": 245.76\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"number\": \"string\",\n        \"date\": \"2025-03-24T00:00:00\",\n        \"customer\": \"string\",\n        \"totalValue\": 10,\n        \"branch\": \"string\",\n        \"isCancelled\": false,\n        \"itens\": [\n            {\n                \"saleId\": 2,\n                \"productId\": 10,\n                \"quantity\": 1,\n                \"unitPrice\": 10,\n                \"discount\": 0,\n                \"totalValue\": 10\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"number\": \"string1\",\n        \"date\": \"2025-03-24T00:00:00\",\n        \"customer\": \"string\",\n        \"totalValue\": 10,\n        \"branch\": \"string\",\n        \"isCancelled\": false,\n        \"itens\": [\n            {\n                \"saleId\": 3,\n                \"productId\": 10,\n                \"quantity\": 1,\n                \"unitPrice\": 10,\n                \"discount\": 0,\n                \"totalValue\": 10\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"number\": \"string2\",\n        \"date\": \"2025-03-24T00:00:00\",\n        \"customer\": \"string\",\n        \"totalValue\": 10,\n        \"branch\": \"string\",\n        \"isCancelled\": false,\n        \"itens\": [\n            {\n                \"saleId\": 4,\n                \"productId\": 10,\n                \"quantity\": 1,\n                \"unitPrice\": 10,\n                \"discount\": 0,\n                \"totalValue\": 10\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"number\": \"string3\",\n        \"date\": \"2025-03-24T00:00:00\",\n        \"customer\": \"string\",\n        \"totalValue\": 10,\n        \"branch\": \"string\",\n        \"isCancelled\": false,\n        \"itens\": [\n            {\n                \"saleId\": 5,\n                \"productId\": 10,\n                \"quantity\": 1,\n                \"unitPrice\": 10,\n                \"discount\": 0,\n                \"totalValue\": 10\n            }\n        ]\n    },\n    {\n        \"id\": 6,\n        \"number\": \"string4\",\n        \"date\": \"2025-03-24T00:00:00\",\n        \"customer\": \"string\",\n        \"totalValue\": 10,\n        \"branch\": \"string\",\n        \"isCancelled\": false,\n        \"itens\": [\n            {\n                \"saleId\": 6,\n                \"productId\": 10,\n                \"quantity\": 1,\n                \"unitPrice\": 10,\n                \"discount\": 0,\n                \"totalValue\": 10\n            }\n        ]\n    },\n    {\n        \"id\": 7,\n        \"number\": \"string5\",\n        \"date\": \"2025-03-24T00:00:00\",\n        \"customer\": \"string\",\n        \"totalValue\": 10,\n        \"branch\": \"string\",\n        \"isCancelled\": false,\n        \"itens\": [\n            {\n                \"saleId\": 7,\n                \"productId\": 10,\n                \"quantity\": 1,\n                \"unitPrice\": 10,\n                \"discount\": 0,\n                \"totalValue\": 10\n            }\n        ]\n    },\n    {\n        \"id\": 8,\n        \"number\": \"string6\",\n        \"date\": \"2025-03-24T00:00:00\",\n        \"customer\": \"string\",\n        \"totalValue\": 10,\n        \"branch\": \"string\",\n        \"isCancelled\": false,\n        \"itens\": [\n            {\n                \"saleId\": 8,\n                \"productId\": 10,\n                \"quantity\": 1,\n                \"unitPrice\": 10,\n                \"discount\": 0,\n                \"totalValue\": 10\n            }\n        ]\n    },\n    {\n        \"id\": 9,\n        \"number\": \"string7\",\n        \"date\": \"2025-03-24T00:00:00\",\n        \"customer\": \"string\",\n        \"totalValue\": 10,\n        \"branch\": \"string\",\n        \"isCancelled\": false,\n        \"itens\": [\n            {\n                \"saleId\": 9,\n                \"productId\": 10,\n                \"quantity\": 1,\n                \"unitPrice\": 10,\n                \"discount\": 0,\n                \"totalValue\": 10\n            }\n        ]\n    },\n    {\n        \"id\": 10,\n        \"number\": \"string8\",\n        \"date\": \"2025-03-24T00:00:00\",\n        \"customer\": \"string\",\n        \"totalValue\": 10,\n        \"branch\": \"string\",\n        \"isCancelled\": false,\n        \"itens\": [\n            {\n                \"saleId\": 10,\n                \"productId\": 10,\n                \"quantity\": 1,\n                \"unitPrice\": 10,\n                \"discount\": 0,\n                \"totalValue\": 10\n            }\n        ]\n    }\n]"
+				},
+				{
+					"name": "Not Found Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales?page=1&pageSize=10&orderBy=-number&orderBy=customer&customer=PRISCILAMFV",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "orderBy",
+									"value": "-number"
+								},
+								{
+									"key": "orderBy",
+									"value": "customer"
+								},
+								{
+									"key": "customer",
+									"value": "PRISCILAMFV"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:23:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "7d0e4d5b-90e7-4596-ae03-11080948ece4"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"CorrelationId\": \"7d0e4d5b-90e7-4596-ae03-11080948ece4\",\n    \"Error\": \"Vendas não encontradas.\",\n    \"Details\": \"\",\n    \"StackTrace\": \"   at Sales.Application.Handlers.GetAllSalesHandler.Handle(GetAllSalesQuery request, CancellationToken cancellationToken) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Application\\\\Handlers\\\\GetAllSalesHandler.cs:line 27\\r\\n   at Sales.API.Controllers.v1.SaleController.GetAll(Int32 page, Int32 pageSize, String[] orderBy, String number, String customer, String branch, Nullable`1 isCancelled, Nullable`1 totalValueMin, Nullable`1 totalValueMax) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.API\\\\Controllers\\\\v1\\\\SaleController.cs:line 54\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\",\n    \"FieldErrors\": null\n}"
+				},
+				{
+					"name": "InternalServerError Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales?page=1&pageSize=10&orderBy=-number&orderBy=customer",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "orderBy",
+									"value": "-number"
+								},
+								{
+									"key": "orderBy",
+									"value": "customer"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:36:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "7379f4e8-3542-4422-bb0b-5339ef532149"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"CorrelationId\": \"7379f4e8-3542-4422-bb0b-5339ef532149\",\n    \"Error\": \"Nome de objeto 'sales' inválido.\",\n    \"Details\": \"\",\n    \"StackTrace\": \"   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()\\r\\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\\r\\n--- End of stack trace from previous location ---\\r\\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\\r\\n   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)\\r\\n--- End of stack trace from previous location ---\\r\\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()\\r\\n   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)\\r\\n   at Sales.Infra.Repositories.SaleRepository.GetSalesAsync(Int32 page, Int32 pageSize, String[] orderBy, String number, String customer, String branch, Nullable`1 isCancelled, Nullable`1 totalValueMin, Nullable`1 totalValueMax, Expression`1[] includes) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Infra\\\\Repositories\\\\SaleRepository.cs:line 50\\r\\n   at Sales.Application.Handlers.GetAllSalesHandler.Handle(GetAllSalesQuery request, CancellationToken cancellationToken) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Application\\\\Handlers\\\\GetAllSalesHandler.cs:line 24\\r\\n   at Sales.API.Controllers.v1.SaleController.GetAll(Int32 page, Int32 pageSize, String[] orderBy, String number, String customer, String branch, Nullable`1 isCancelled, Nullable`1 totalValueMin, Nullable`1 totalValueMax) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.API\\\\Controllers\\\\v1\\\\SaleController.cs:line 54\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\",\n    \"FieldErrors\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Create a sale",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": \"234\",\r\n  \"date\": \"2025-03-24\",\r\n  \"customer\": \"Nome do cliente\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 876,\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 23.56\r\n    },\r\n    {\r\n      \"productId\": 345,\r\n      \"quantity\": 18,\r\n      \"unitPrice\": 13.90\r\n    },\r\n    {\r\n      \"productId\": 765,\r\n      \"quantity\": 9,\r\n      \"unitPrice\": 8.75\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7057/api/v1/Sales",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7057",
+					"path": [
+						"api",
+						"v1",
+						"Sales"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://localhost:7057/api/v1/Sales' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"number\": \"456\",\r\n  \"date\": \"2025-03-24\",\r\n  \"customer\": \"Nome do cliente\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 876,\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 23.56\r\n    },\r\n    {\r\n      \"productId\": 345,\r\n      \"quantity\": 18,\r\n      \"unitPrice\": 13.90\r\n    },\r\n    {\r\n      \"productId\": 765,\r\n      \"quantity\": 9,\r\n      \"unitPrice\": 8.75\r\n    }\r\n  ]\r\n}'"
+			},
+			"response": [
+				{
+					"name": "Successful Created Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"number\": \"234\",\r\n  \"date\": \"2025-03-24\",\r\n  \"customer\": \"Nome do cliente\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 876,\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 23.56\r\n    },\r\n    {\r\n      \"productId\": 345,\r\n      \"quantity\": 18,\r\n      \"unitPrice\": 13.90\r\n    },\r\n    {\r\n      \"productId\": 765,\r\n      \"quantity\": 9,\r\n      \"unitPrice\": 8.75\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:27:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Location",
+							"value": "https://localhost:7057/api/v1/Sales"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "e2323755-96e5-468f-af01-d52e784ea6a7"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 14\n}"
+				},
+				{
+					"name": "Conflict Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"number\": \"234\",\r\n  \"date\": \"2025-03-24\",\r\n  \"customer\": \"Nome do cliente\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 876,\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 23.56\r\n    },\r\n    {\r\n      \"productId\": 345,\r\n      \"quantity\": 18,\r\n      \"unitPrice\": 13.90\r\n    },\r\n    {\r\n      \"productId\": 765,\r\n      \"quantity\": 9,\r\n      \"unitPrice\": 8.75\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:27:17 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "6b754cb3-da63-49d9-a518-db26654f2522"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"CorrelationId\": \"6b754cb3-da63-49d9-a518-db26654f2522\",\n    \"Error\": \"Venda já cadastrada\",\n    \"Details\": \"\",\n    \"StackTrace\": \"   at Sales.Application.Handlers.CreateSaleHandler.Handle(CreateSaleCommand request, CancellationToken cancellationToken) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Application\\\\Handlers\\\\CreateSaleHandler.cs:line 34\\r\\n   at Sales.API.Controllers.v1.SaleController.AddSale(SaleRequestModel request) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.API\\\\Controllers\\\\v1\\\\SaleController.cs:line 75\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\",\n    \"FieldErrors\": null\n}"
+				},
+				{
+					"name": "InternalServerError Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"number\": \"365\",\r\n  \"date\": \"2025-03-24\",\r\n  \"customer\": \"Nome do cliente\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 876,\r\n      \"quantity\": 35,\r\n      \"unitPrice\": 23.56\r\n    },\r\n    {\r\n      \"productId\": 345,\r\n      \"quantity\": 18,\r\n      \"unitPrice\": 13.90\r\n    },\r\n    {\r\n      \"productId\": 765,\r\n      \"quantity\": 9,\r\n      \"unitPrice\": 8.75\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:28:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "2090dcc0-bee2-4bad-a448-c3f0122a6fa4"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"CorrelationId\": \"2090dcc0-bee2-4bad-a448-c3f0122a6fa4\",\n    \"Error\": \"Não é possível vender mais de 20 itens idênticos.\",\n    \"Details\": \"\",\n    \"StackTrace\": \"   at Sales.Application.Factories.DiscountFactory.CreateStrategy(Int32 quantity) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Application\\\\Factories\\\\DiscountFactory.cs:line 12\\r\\n   at Sales.Application.Handlers.CreateSaleHandler.Handle(CreateSaleCommand request, CancellationToken cancellationToken) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Application\\\\Handlers\\\\CreateSaleHandler.cs:line 38\\r\\n   at Sales.API.Controllers.v1.SaleController.AddSale(SaleRequestModel request) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.API\\\\Controllers\\\\v1\\\\SaleController.cs:line 75\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\",\n    \"FieldErrors\": null\n}"
+				},
+				{
+					"name": "Bad Request Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2025-03-24\",\r\n  \"customer\": \"Nome do cliente\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 876,\r\n      \"quantity\": 35,\r\n      \"unitPrice\": 23.56\r\n    },\r\n    {\r\n      \"productId\": 345,\r\n      \"quantity\": 18,\r\n      \"unitPrice\": 13.90\r\n    },\r\n    {\r\n      \"productId\": 765,\r\n      \"quantity\": 9,\r\n      \"unitPrice\": 8.75\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:28:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "3336dd3b-4af2-45d0-81c7-0a4b314e4b62"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"Number\": [\n            \"O Number deve ser preenchido.\"\n        ]\n    },\n    \"traceId\": \"00-0eaa6b9a8fc59a99d3cc4b747b02a285-6583556701265b42-00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a sale",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"number\": \"12\",\r\n  \"date\": \"2025-03-24T00:00:00\",\r\n  \"customer\": \"Priscila\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"quantity\": 6,\r\n      \"unitPrice\": 5.94\r\n    },\r\n    {\r\n      \"productId\": 24,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 13.57\r\n    },\r\n    {\r\n      \"productId\": 36,\r\n      \"quantity\": 15,\r\n      \"unitPrice\": 20.48\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7057/api/v1/Sales/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7057",
+					"path": [
+						"api",
+						"v1",
+						"Sales",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'PUT' \\\r\n  'https://localhost:7057/api/v1/Sales/1' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '\r\n{\r\n  \"number\": \"12\",\r\n  \"date\": \"2025-03-24T00:00:00\",\r\n  \"customer\": \"Priscila\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"quantity\": 6,\r\n      \"unitPrice\": 5.94\r\n    },\r\n    {\r\n      \"productId\": 24,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 13.57\r\n    },\r\n    {\r\n      \"productId\": 36,\r\n      \"quantity\": 15,\r\n      \"unitPrice\": 20.48\r\n    }\r\n  ]\r\n}'"
+			},
+			"response": [
+				{
+					"name": "Successful NoContent Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"number\": \"12\",\r\n  \"date\": \"2025-03-24T00:00:00\",\r\n  \"customer\": \"Priscila\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"quantity\": 6,\r\n      \"unitPrice\": 5.94\r\n    },\r\n    {\r\n      \"productId\": 24,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 13.57\r\n    },\r\n    {\r\n      \"productId\": 36,\r\n      \"quantity\": 15,\r\n      \"unitPrice\": 20.48\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales",
+								"1"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:30:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "3b7fe668-5cba-4735-8e24-49de5415331b"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Bad Request Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"date\": \"2025-03-24T00:00:00\",\r\n  \"customer\": \"Priscila\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"quantity\": 6,\r\n      \"unitPrice\": 5.94\r\n    },\r\n    {\r\n      \"productId\": 24,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 13.57\r\n    },\r\n    {\r\n      \"productId\": 36,\r\n      \"quantity\": 15,\r\n      \"unitPrice\": 20.48\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales",
+								"1"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:30:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "15ec2dfe-a0f9-411f-937c-230cbf891d98"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"Number\": [\n            \"O Number deve ser preenchido.\"\n        ]\n    },\n    \"traceId\": \"00-34f97f40179e1f64929d08d1cb996052-9a9edf93c0d5e7a2-00\"\n}"
+				},
+				{
+					"name": "Not Found Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"number\": \"12\",\r\n  \"date\": \"2025-03-24T00:00:00\",\r\n  \"customer\": \"Priscila\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"quantity\": 6,\r\n      \"unitPrice\": 5.94\r\n    },\r\n    {\r\n      \"productId\": 24,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 13.57\r\n    },\r\n    {\r\n      \"productId\": 36,\r\n      \"quantity\": 15,\r\n      \"unitPrice\": 20.48\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales/999",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales",
+								"999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:31:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "9ff8d03d-bd7a-4ed5-ab39-f07bce0b074b"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"CorrelationId\": \"9ff8d03d-bd7a-4ed5-ab39-f07bce0b074b\",\n    \"Error\": \"Venda não encontrada para o id.\",\n    \"Details\": \"\",\n    \"StackTrace\": \"   at Sales.Application.Handlers.UpdateSaleHandler.Handle(UpdateSaleCommand request, CancellationToken cancellationToken) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Application\\\\Handlers\\\\UpdateSaleHandler.cs:line 29\\r\\n   at MediatR.Wrappers.RequestHandlerWrapperImpl`1.<>c__DisplayClass1_0.<<Handle>g__Handler|0>d.MoveNext()\\r\\n--- End of stack trace from previous location ---\\r\\n   at Sales.API.Controllers.v1.SaleController.Update(Int32 id, SaleRequestModel request) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.API\\\\Controllers\\\\v1\\\\SaleController.cs:line 97\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\",\n    \"FieldErrors\": null\n}"
+				},
+				{
+					"name": "InternalServerError Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"number\": \"12\",\r\n  \"date\": \"2025-03-24T00:00:00\",\r\n  \"customer\": \"Priscila\",\r\n  \"branch\": \"Santos\",\r\n  \"itens\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"quantity\": 6,\r\n      \"unitPrice\": 5.94\r\n    },\r\n    {\r\n      \"productId\": 24,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 13.57\r\n    },\r\n    {\r\n      \"productId\": 36,\r\n      \"quantity\": 15,\r\n      \"unitPrice\": 20.48\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales",
+								"1"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:37:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "235516e5-50f3-4419-b03a-efab78400f40"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"CorrelationId\": \"235516e5-50f3-4419-b03a-efab78400f40\",\n    \"Error\": \"Nome de objeto 'sales' inválido.\",\n    \"Details\": \"\",\n    \"StackTrace\": \"   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()\\r\\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\\r\\n--- End of stack trace from previous location ---\\r\\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\\r\\n   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)\\r\\n--- End of stack trace from previous location ---\\r\\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()\\r\\n   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)\\r\\n   at Sales.InfraEstructure.Repositories.Repository`1.GetByIdAsyncIncludes(Int32 id, Expression`1[] includes) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Infra\\\\Repositories\\\\Repository.cs:line 50\\r\\n   at Sales.Application.Handlers.UpdateSaleHandler.Handle(UpdateSaleCommand request, CancellationToken cancellationToken) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Application\\\\Handlers\\\\UpdateSaleHandler.cs:line 29\\r\\n   at MediatR.Wrappers.RequestHandlerWrapperImpl`1.<>c__DisplayClass1_0.<<Handle>g__Handler|0>d.MoveNext()\\r\\n--- End of stack trace from previous location ---\\r\\n   at Sales.API.Controllers.v1.SaleController.Update(Int32 id, SaleRequestModel request) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.API\\\\Controllers\\\\v1\\\\SaleController.cs:line 97\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\",\n    \"FieldErrors\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Cancel a sale",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7057/api/v1/Sales/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7057",
+					"path": [
+						"api",
+						"v1",
+						"Sales",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'DELETE' \\\r\n  'https://localhost:7057/api/v1/Sales/14' \\\r\n  -H 'accept: */*'"
+			},
+			"response": [
+				{
+					"name": "Successful NoContent Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales/14",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales",
+								"14"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:32:49 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "e7fbfd4e-6f75-491d-aa3d-f813faee932f"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Not Found Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales/999",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales",
+								"999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:33:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "aec8d961-7960-4842-b7b7-2b769f456868"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"CorrelationId\": \"aec8d961-7960-4842-b7b7-2b769f456868\",\n    \"Error\": \"Venda não encontrada para o id.\",\n    \"Details\": \"\",\n    \"StackTrace\": \"   at Sales.Application.Handlers.DeleteSaleHandler.Handle(DeleteSaleCommand request, CancellationToken cancellationToken) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Application\\\\Handlers\\\\DeleteSaleHandler.cs:line 25\\r\\n   at MediatR.Wrappers.RequestHandlerWrapperImpl`1.<>c__DisplayClass1_0.<<Handle>g__Handler|0>d.MoveNext()\\r\\n--- End of stack trace from previous location ---\\r\\n   at Sales.API.Controllers.v1.SaleController.Delete(Int32 id) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.API\\\\Controllers\\\\v1\\\\SaleController.cs:line 115\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\",\n    \"FieldErrors\": null\n}"
+				},
+				{
+					"name": "InternalServerError Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7057/api/v1/Sales/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7057",
+							"path": [
+								"api",
+								"v1",
+								"Sales",
+								"1"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Mar 2025 17:37:34 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "715ce94f-e361-432b-9b99-e1143ec58d12"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"CorrelationId\": \"715ce94f-e361-432b-9b99-e1143ec58d12\",\n    \"Error\": \"Nome de objeto 'sales' inválido.\",\n    \"Details\": \"\",\n    \"StackTrace\": \"   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()\\r\\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\\r\\n--- End of stack trace from previous location ---\\r\\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\\r\\n   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)\\r\\n--- End of stack trace from previous location ---\\r\\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()\\r\\n   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)\\r\\n   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)\\r\\n   at Sales.InfraEstructure.Repositories.Repository`1.GetByIdAsync(Int32 id) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Infra\\\\Repositories\\\\Repository.cs:line 38\\r\\n   at Sales.Application.Handlers.DeleteSaleHandler.Handle(DeleteSaleCommand request, CancellationToken cancellationToken) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.Application\\\\Handlers\\\\DeleteSaleHandler.cs:line 25\\r\\n   at MediatR.Wrappers.RequestHandlerWrapperImpl`1.<>c__DisplayClass1_0.<<Handle>g__Handler|0>d.MoveNext()\\r\\n--- End of stack trace from previous location ---\\r\\n   at Sales.API.Controllers.v1.SaleController.Delete(Int32 id) in C:\\\\Users\\\\fi668\\\\source\\\\repos\\\\ntt-sales-records\\\\src\\\\Sales.API\\\\Controllers\\\\v1\\\\SaleController.cs:line 115\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\",\n    \"FieldErrors\": null\n}"
+				}
+			]
+		}
+	]
+}

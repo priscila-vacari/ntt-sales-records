@@ -1,0 +1,421 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sales.API</name>
+    </assembly>
+    <members>
+        <member name="T:Sales.API.Controllers.BaseController">
+            <summary>
+            Base controller
+            </summary>
+            <param name="logger"></param>
+            <param name="mapper"></param>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:Sales.API.Controllers.BaseController.#ctor(Microsoft.Extensions.Logging.ILogger{Sales.API.Controllers.BaseController},AutoMapper.IMapper,MediatR.IMediator)">
+            <summary>
+            Base controller
+            </summary>
+            <param name="logger"></param>
+            <param name="mapper"></param>
+            <param name="mediator"></param>
+        </member>
+        <member name="F:Sales.API.Controllers.BaseController._logger">
+            <summary>
+            Logger
+            </summary>
+        </member>
+        <member name="F:Sales.API.Controllers.BaseController._mapper">
+            <summary>
+            Mapper
+            </summary>
+        </member>
+        <member name="F:Sales.API.Controllers.BaseController._mediator">
+            <summary>
+            Mediator
+            </summary>
+        </member>
+        <member name="T:Sales.API.Controllers.v1.SaleController">
+            <summary>
+            Controller responsável pelas vendas
+            </summary>
+            <param name="logger"></param>
+            <param name="mapper"></param>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:Sales.API.Controllers.v1.SaleController.#ctor(Microsoft.Extensions.Logging.ILogger{Sales.API.Controllers.v1.SaleController},AutoMapper.IMapper,MediatR.IMediator)">
+            <summary>
+            Controller responsável pelas vendas
+            </summary>
+            <param name="logger"></param>
+            <param name="mapper"></param>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:Sales.API.Controllers.v1.SaleController.GetSaleById(System.Int32)">
+            <summary>
+            Busca o venda pelo id
+            </summary>
+            <param name="id"></param>
+            <returns>Retorna os dados da venda especificada</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.v1.SaleController.GetAll(System.Int32,System.Int32,System.String[],System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+            <summary>
+            Busca todas as vendas
+            </summary>
+            <returns>Retorna todos as vendas</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.v1.SaleController.AddSale(Sales.API.Models.SaleRequestModel)">
+            <summary>
+            Adiciona uma nova venda
+            </summary>
+            <param name="request"></param>
+            <returns>Retorna a venda criada</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.v1.SaleController.Update(System.Int32,Sales.API.Models.SaleRequestModel)">
+            <summary>
+            Atualiza uma venda
+            </summary>
+            <param name="id"></param>
+            <param name="request"></param>
+        </member>
+        <member name="M:Sales.API.Controllers.v1.SaleController.Delete(System.Int32)">
+            <summary>
+            Cancela uma venda
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:Sales.API.Filters.FieldError">
+            <summary>
+            Objeto de erros de validação em campos
+            </summary>
+        </member>
+        <member name="P:Sales.API.Filters.FieldError.Field">
+            <summary>
+            Campo
+            </summary>
+        </member>
+        <member name="P:Sales.API.Filters.FieldError.Error">
+            <summary>
+            Mensagem de erro
+            </summary>
+        </member>
+        <member name="T:Sales.API.Filters.ErrorResult">
+            <summary>
+            Objeto de erro padrão
+            </summary>
+            <param name="exception"></param>
+            <param name="correlationId"></param>
+            <param name="fieldErrors"></param>
+        </member>
+        <member name="M:Sales.API.Filters.ErrorResult.#ctor(System.Exception,System.String,System.Collections.Generic.List{Sales.API.Filters.FieldError})">
+            <summary>
+            Objeto de erro padrão
+            </summary>
+            <param name="exception"></param>
+            <param name="correlationId"></param>
+            <param name="fieldErrors"></param>
+        </member>
+        <member name="P:Sales.API.Filters.ErrorResult.CorrelationId">
+            <summary>
+            CorrelationId do fluxo
+            </summary>
+        </member>
+        <member name="P:Sales.API.Filters.ErrorResult.Error">
+            <summary>
+            Mensagem de erro
+            </summary>
+        </member>
+        <member name="P:Sales.API.Filters.ErrorResult.Details">
+            <summary>
+            Detalhes do erro
+            </summary>
+        </member>
+        <member name="P:Sales.API.Filters.ErrorResult.StackTrace">
+            <summary>
+            Rastreamento
+            </summary>
+        </member>
+        <member name="P:Sales.API.Filters.ErrorResult.FieldErrors">
+            <summary>
+            Campos com erro de validação
+            </summary>
+        </member>
+        <member name="T:Sales.API.Filters.ExceptionFilter">
+            <summary>
+            Filtro de exceção
+            </summary>
+        </member>
+        <member name="M:Sales.API.Filters.ExceptionFilter.#ctor">
+            <summary>
+            Filtro de exceção
+            </summary>
+        </member>
+        <member name="M:Sales.API.Filters.ExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Padroniza retorno de erros
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Sales.API.Mapping.MappingProfile">
+            <summary>
+            Mapeamento de modelos
+            </summary>
+        </member>
+        <member name="M:Sales.API.Mapping.MappingProfile.#ctor">
+            <summary>
+            Perfis de mapeamento
+            </summary>
+        </member>
+        <member name="T:Sales.API.Middlewares.BruteForceProtectionMiddleware">
+            <summary>
+            Middleware de proteção de força bruta 
+            </summary>
+            <param name="next"></param>
+            <param name="cache"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Sales.API.Middlewares.BruteForceProtectionMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.Extensions.Logging.ILogger{Sales.API.Middlewares.BruteForceProtectionMiddleware})">
+            <summary>
+            Middleware de proteção de força bruta 
+            </summary>
+            <param name="next"></param>
+            <param name="cache"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Sales.API.Middlewares.BruteForceProtectionMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invoke 
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sales.API.Middlewares.BruteForceProtectionMiddlewareExtensions">
+            <summary>
+            Classe de extensão para adicionar o middleware de proteção
+            </summary>
+        </member>
+        <member name="M:Sales.API.Middlewares.BruteForceProtectionMiddlewareExtensions.UseBruteForceProtection(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Adiciona extensão do middleware de proteção
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sales.API.Middlewares.CorrelationMiddleware">
+            <summary>
+            Middleware de rastreabilidade do fluxo
+            </summary>
+            <param name="logger"></param>
+            <param name="next"></param>
+        </member>
+        <member name="M:Sales.API.Middlewares.CorrelationMiddleware.#ctor(Microsoft.Extensions.Logging.ILogger{Sales.API.Middlewares.CorrelationMiddleware},Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            Middleware de rastreabilidade do fluxo
+            </summary>
+            <param name="logger"></param>
+            <param name="next"></param>
+        </member>
+        <member name="M:Sales.API.Middlewares.CorrelationMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sales.API.Middlewares.CorrelationIdMiddlewareExtensions">
+            <summary>
+            Classe de extensão para adicionar o middleware de rastreabilidade
+            </summary>
+        </member>
+        <member name="M:Sales.API.Middlewares.CorrelationIdMiddlewareExtensions.UseCorrelationId(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Adiciona extensão do middleware de rastreabilidade
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sales.API.Models.SaleCreateResponseModel">
+            <summary>
+            Classe de resposta da requisição do pedido
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleCreateResponseModel.Id">
+            <summary>
+            Id 
+            </summary>
+        </member>
+        <member name="T:Sales.API.Models.SaleItemRequestModel">
+            <summary>
+            Classe de requisição do item da venda
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleItemRequestModel.ProductId">
+            <summary>
+            Id do produto
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleItemRequestModel.Quantity">
+            <summary>
+            Quantidade
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleItemRequestModel.UnitPrice">
+            <summary>
+            Valor
+            </summary>
+        </member>
+        <member name="T:Sales.API.Models.SaleItemResponseModel">
+            <summary>
+            Classe de resposta do item da venda
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleItemResponseModel.SaleId">
+            <summary>
+            Id do produto
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleItemResponseModel.ProductId">
+            <summary>
+            Id do produto
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleItemResponseModel.Quantity">
+            <summary>
+            Quantidade
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleItemResponseModel.UnitPrice">
+            <summary>
+            Valor
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleItemResponseModel.Discount">
+            <summary>
+            Valor
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleItemResponseModel.TotalValue">
+            <summary>
+            Valor
+            </summary>
+        </member>
+        <member name="T:Sales.API.Models.SaleRequestModel">
+            <summary>
+            Classe de requisição da venda
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleRequestModel.Number">
+            <summary>
+            Número da venda
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleRequestModel.Date">
+            <summary>
+            Data da venda
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleRequestModel.Customer">
+            <summary>
+            Cliente
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleRequestModel.Branch">
+            <summary>
+            Filial
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleRequestModel.Items">
+            <summary>
+            Itens
+            </summary>
+        </member>
+        <member name="T:Sales.API.Models.SaleResponseModel">
+            <summary>
+            Classe de resposta da venda
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleResponseModel.Id">
+            <summary>
+            Id da venda
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleResponseModel.Number">
+            <summary>
+            Número da venda
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleResponseModel.Date">
+            <summary>
+            Data da venda
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleResponseModel.Customer">
+            <summary>
+            Cliente
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleResponseModel.TotalValue">
+            <summary>
+            Valor total
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleResponseModel.Branch">
+            <summary>
+            Filial
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleResponseModel.IsCancelled">
+            <summary>
+            Indica se a venda foi cancelada
+            </summary>
+        </member>
+        <member name="P:Sales.API.Models.SaleResponseModel.Items">
+            <summary>
+            Itens
+            </summary>
+        </member>
+        <member name="T:Sales.API.Program">
+            <summary>
+            Classe principal do programa
+            </summary>
+        </member>
+        <member name="T:Sales.API.Swagger.ConfigureSwaggerOptions">
+            <summary>
+            Classe de configuração de swagger
+            </summary>
+            <param name="apiVersionDescriptionProvider"></param>
+        </member>
+        <member name="M:Sales.API.Swagger.ConfigureSwaggerOptions.#ctor(Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            Classe de configuração de swagger
+            </summary>
+            <param name="apiVersionDescriptionProvider"></param>
+        </member>
+        <member name="M:Sales.API.Swagger.ConfigureSwaggerOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            Configura descrições das versões
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="T:Sales.API.Validators.SaleItemRequestModelValidator">
+            <summary>
+            Classe de validação do item da venda
+            </summary>
+        </member>
+        <member name="M:Sales.API.Validators.SaleItemRequestModelValidator.#ctor">
+            <summary>
+            Validador de item da venda
+            </summary>
+        </member>
+        <member name="T:Sales.API.Validators.SaleRequestModelValidator">
+            <summary>
+            Classe de validação de venda
+            </summary>
+        </member>
+        <member name="M:Sales.API.Validators.SaleRequestModelValidator.#ctor">
+            <summary>
+            Validador de venda
+            </summary>
+        </member>
+    </members>
+</doc>
