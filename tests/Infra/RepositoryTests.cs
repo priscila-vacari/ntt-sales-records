@@ -1,10 +1,10 @@
 ﻿using Sales.Infra.Context;
-using Sales.InfraEstructure.Repositories;
 using Sales.Tests.Fakes.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
 using Sales.Domain.Entities;
+using Sales.Infra.Repositories;
 
 namespace Sales.Tests.Infra
 {
@@ -17,13 +17,13 @@ namespace Sales.Tests.Infra
             _logger = Substitute.For<ILogger<Repository<Sale>>>();
         }
 
-        private AppDbContext GetInMemoryDbContext()
+        private AppDbContextPostgre GetInMemoryDbContext()
         {
-            var options = new DbContextOptionsBuilder<AppDbContext>()
+            var options = new DbContextOptionsBuilder<AppDbContextPostgre>()
                 .UseInMemoryDatabase(databaseName: "DatabaseTest")
                 .Options;
 
-            return new AppDbContext(options);
+            return new AppDbContextPostgre(options);
         }
 
         [Fact]

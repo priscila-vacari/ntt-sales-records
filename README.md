@@ -31,7 +31,7 @@ A API gerencia registros de vendas e implementa as seguintes tecnologias e conce
 
 - **Rebus** (mensageria) [disabled]
 
-- **SQL Server:** Banco de dados relacional.
+- **PostgreSQL:** Banco de dados relacional.
 
 - **XUnit, Bogus e NSubstitute:** Validação de dados e testes unitários.
 
@@ -60,7 +60,7 @@ A aplicação segue um padrão de divisão em camadas:
 
 3. Registro de logs: **Utilizar Serilog**
 
-4. Banco de dados: SQL Server, podendo ser ajustado para PostgreSQL
+4. Banco de dados: PostgreSQL
 
 5. Controle de versão: **Aplicar Git Flow e Commit semântico**
 
@@ -193,7 +193,7 @@ Certifique-se de que você possui os seguintes itens instalados:
 
 - **SDK do .NET 8:** [Baixar aqui](https://dotnet.microsoft.com/pt-br/download)
 
-- **SQL Server** (ou outro banco compatível configurado no `appsettings.json`).
+- **PostgreSQL** (ou outro banco compatível configurado no `appsettings.json`).
 
 - Um editor de texto, como **Visual Studio** ou **Visual Studio Code**.
 
@@ -209,13 +209,13 @@ cd ntt-sales-records
 
 **3. Configurar o Banco de Dados**
 
-1. Certifique-se de que seu banco de dados SQL Server está configurado e rodando.
+1. Certifique-se de que seu banco de dados PostgreSQL está configurado e rodando.
 
 2. Atualize o arquivo `appsettings.json` com a string de conexão:
 ```
 json
 "ConnectionStrings": {
-  "SalesConnection": "Server=SEU_SERVIDOR;Database=SEU_BANCO;User Id=SEU_USUARIO;Password=SUA_SENHA;Encrypt=False;Pooling=true;"
+  "SalesConnectionPostgre": "Host=localhost;Database=Sales;Username=sale;Password=sale"
 }
 ```
 
@@ -306,10 +306,9 @@ reportgenerator "-reports:TestResults\**\*.cobertura.xml" "-targetdir:coveragere
 
 1. Implementar autenticação e autorização JWT (JSON Web Token).
 2. Implementar containerização.
-3. Alterar conexão para PostgreSQL
-4. Criar um nuget package de conexão com banco de dados.
-5. Aumentar cobertura de código.
-6. Implementar uso de filas como RabbitMQ para melhorar ainda mais a escalabilidade no recebimento das requisições de vendas e disparos de eventos juntamente com a criação de workers de processamento.
+3. Criar um nuget package de conexão com banco de dados.
+4. Aumentar cobertura de código.
+5. Implementar uso de filas como RabbitMQ para melhorar ainda mais a escalabilidade no recebimento das requisições de vendas e disparos de eventos juntamente com a criação de workers de processamento.
 
 
 ## 📜 Licença

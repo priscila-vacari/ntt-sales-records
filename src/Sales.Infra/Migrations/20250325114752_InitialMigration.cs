@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace Sales.Infra.Migrations
 {
     /// <inheritdoc />
-    [ExcludeFromCodeCoverage]
     public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
@@ -17,14 +16,14 @@ namespace Sales.Infra.Migrations
                 name: "sales",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    number = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    customer = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    totalValue = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    branch = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    isCancelled = table.Column<bool>(type: "bit", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    number = table.Column<string>(type: "text", nullable: false),
+                    date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    customer = table.Column<string>(type: "text", nullable: false),
+                    totalValue = table.Column<decimal>(type: "numeric", nullable: false),
+                    branch = table.Column<string>(type: "text", nullable: false),
+                    isCancelled = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -35,12 +34,12 @@ namespace Sales.Infra.Migrations
                 name: "sale_items",
                 columns: table => new
                 {
-                    SaleId = table.Column<int>(type: "int", nullable: false),
-                    productId = table.Column<int>(type: "int", nullable: false),
-                    quantity = table.Column<int>(type: "int", nullable: false),
-                    unitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    discount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    totalValue = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    SaleId = table.Column<int>(type: "integer", nullable: false),
+                    productId = table.Column<int>(type: "integer", nullable: false),
+                    quantity = table.Column<int>(type: "integer", nullable: false),
+                    unitPrice = table.Column<decimal>(type: "numeric", nullable: false),
+                    discount = table.Column<decimal>(type: "numeric", nullable: false),
+                    totalValue = table.Column<decimal>(type: "numeric", nullable: false)
                 },
                 constraints: table =>
                 {

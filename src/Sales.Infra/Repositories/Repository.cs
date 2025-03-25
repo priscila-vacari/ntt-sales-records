@@ -5,11 +5,11 @@ using Microsoft.Extensions.Logging;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 
-namespace Sales.InfraEstructure.Repositories
+namespace Sales.Infra.Repositories
 {
-    public class Repository<T>(AppDbContext context, ILogger<Repository<T>> logger) : IRepository<T> where T : class
+    public class Repository<T>(AppDbContextPostgre context, ILogger<Repository<T>> logger) : IRepository<T> where T : class
     {
-        private readonly AppDbContext _context = context;
+        private readonly AppDbContextPostgre _context = context;
         private readonly ILogger<Repository<T>> _logger = logger;
         private readonly DbSet<T> _dbSet = context.Set<T>();
 

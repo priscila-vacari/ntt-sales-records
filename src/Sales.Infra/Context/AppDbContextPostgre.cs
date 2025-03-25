@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Sales.Infra.Context
 {
     [ExcludeFromCodeCoverage]
-    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
+    public class AppDbContextPostgre(DbContextOptions<AppDbContextPostgre> options) : DbContext(options)
     {
         public DbSet<Sale> Sales { get; set; }
         public DbSet<SaleItem> SaleItens { get; set; }

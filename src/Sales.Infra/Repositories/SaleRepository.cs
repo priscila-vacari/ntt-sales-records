@@ -8,9 +8,9 @@ using System.Linq.Expressions;
 namespace Sales.Infra.Repositories
 {
     [ExcludeFromCodeCoverage]
-    public class SaleRepository(AppDbContext context) : ISaleRepository
+    public class SaleRepository(AppDbContextPostgre context) : ISaleRepository
     {
-        private readonly AppDbContext _context = context;
+        private readonly AppDbContextPostgre _context = context;
 
         public async Task<IEnumerable<Sale>> GetSalesAsync(int page, int pageSize, string[]? orderBy, string? number, string? customer, string? branch, bool? isCancelled, decimal? totalValueMin, decimal? totalValueMax, params Expression<Func<Sale, object>>[] includes)
         {
@@ -42,7 +42,7 @@ namespace Sales.Infra.Repositories
                 foreach (var order in orderBy)
                 {
                     var isDescending = order.StartsWith("-");
-                    var propertyName = isDescending ? order.Substring(1) : order;
+                    var propertyName = isDescending ? order[1..] : order;
                     query = ApplyOrdering(query, propertyName, isDescending);
                 }
             }
@@ -61,7 +61,7 @@ namespace Sales.Infra.Repositories
                 .First(m => m.Name == methodName && m.GetParameters().Length == 2)
                 .MakeGenericMethod(typeof(Sale), property.Type);
 
-            return (IQueryable<Sale>)method.Invoke(null, new object[] { query, lambda });
+            return (IQueryable<Sale>)method.Invoke(null, [query, lambda]);
         }
     }
 }

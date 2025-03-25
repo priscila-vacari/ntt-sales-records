@@ -1,6 +1,5 @@
 ﻿using Sales.Infra.Context;
 using Sales.Infra.Interfaces;
-using Sales.InfraEstructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,9 +19,8 @@ namespace Sales.Infra
 
         private static IServiceCollection AddDependencyContext(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("SalesConnection");
-            services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(connectionString));
-            //services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
+            var connectionStringPostgre = configuration.GetConnectionString("SalesConnectionPostgre");
+            services.AddDbContext<AppDbContextPostgre>(options => options.UseNpgsql(connectionStringPostgre));
 
             return services;
         }
