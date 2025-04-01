@@ -66,7 +66,7 @@ namespace Sales.Tests.Application.Handlers
             var discountStrategy = Substitute.For<IDiscountStrategy>();
             _discountFactory.CreateStrategy(Arg.Any<int>()).Returns(discountStrategy);
 
-            var handler = new CreateSaleHandler(_logger, _mapper, _discountFactory, _serviceProvider);
+            var handler = new CreateSaleHandler(_logger, _mapper, _discountFactory, _saleRepository);
 
             var result = await handler.Handle(saleRequest, CancellationToken.None);
 
@@ -98,7 +98,7 @@ namespace Sales.Tests.Application.Handlers
             _mapper.Map<Sale>(Arg.Any<SaleDTO>()).Returns(sale);
             _discountFactory.CreateStrategy(Arg.Any<int>()).Returns(Substitute.For<IDiscountStrategy>());
 
-            var handler = new CreateSaleHandler(_logger, _mapper, _discountFactory, _serviceProvider);
+            var handler = new CreateSaleHandler(_logger, _mapper, _discountFactory, _saleRepository);
 
             var exception = await Assert.ThrowsAsync<DuplicateEntryException>(() => handler.Handle(saleRequest, CancellationToken.None));
             Assert.Equal("Venda já cadastrada", exception.Message); 
@@ -130,7 +130,7 @@ namespace Sales.Tests.Application.Handlers
 
             _mapper.Map<Sale>(Arg.Any<SaleDTO>()).Returns(sale);
 
-            var handler = new CreateSaleHandler(_logger, _mapper, _discountFactory, _serviceProvider);
+            var handler = new CreateSaleHandler(_logger, _mapper, _discountFactory, _saleRepository);
 
             var result = handler.Handle(saleRequest, CancellationToken.None);
 

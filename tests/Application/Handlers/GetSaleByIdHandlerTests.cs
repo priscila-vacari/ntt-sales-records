@@ -63,7 +63,7 @@ namespace Sales.Tests.Application.Handlers
 
             _mapper.Map<SaleDTO>(sale).Returns(saleDto);
 
-            var handler = new GetSaleByIdHandler(_logger, _mapper, _serviceProvider);
+            var handler = new GetSaleByIdHandler(_logger, _mapper, _saleRepository);
 
             var result = await handler.Handle(saleRequest, CancellationToken.None);
 
@@ -84,7 +84,7 @@ namespace Sales.Tests.Application.Handlers
             Sale? sale = null;
             _saleRepository.GetByIdAsyncIncludes(Arg.Any<int>(), Arg.Any<Expression<Func<Sale, object>>[]>()).Returns(Task.FromResult(sale));
 
-            var handler = new GetSaleByIdHandler(_logger, _mapper, _serviceProvider);
+            var handler = new GetSaleByIdHandler(_logger, _mapper, _saleRepository);
             var query = new GetSaleByIdQuery(invalidId);
 
             var exception = await Assert.ThrowsAsync<NotFoundException>(() => handler.Handle(query, CancellationToken.None));

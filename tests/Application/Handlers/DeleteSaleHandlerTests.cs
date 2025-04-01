@@ -40,7 +40,7 @@ namespace Sales.Tests.Application.Handlers
             _saleRepository.GetByIdAsync(Arg.Any<int>()).Returns(sale); 
             _saleRepository.UpdateAsync(Arg.Any<Sale>()).Returns(Task.CompletedTask);
 
-            var handler = new DeleteSaleHandler(_logger, _serviceProvider);
+            var handler = new DeleteSaleHandler(_logger, _saleRepository);
 
             await handler.Handle(new DeleteSaleCommand(1), CancellationToken.None);
 
@@ -54,7 +54,7 @@ namespace Sales.Tests.Application.Handlers
             Sale? sale = null;
             _saleRepository.GetByIdAsync(Arg.Any<int>()).Returns(sale); 
 
-            var handler = new DeleteSaleHandler(_logger, _serviceProvider);
+            var handler = new DeleteSaleHandler(_logger, _saleRepository);
 
             var exception = await Assert.ThrowsAsync<NotFoundException>(() => handler.Handle(new DeleteSaleCommand(1), CancellationToken.None));
             Assert.Equal("Venda não encontrada para o id.", exception.Message);
@@ -68,7 +68,7 @@ namespace Sales.Tests.Application.Handlers
             _saleRepository.GetByIdAsync(Arg.Any<int>()).Returns(sale);
             _saleRepository.UpdateAsync(Arg.Any<Sale>()).Returns(Task.CompletedTask); 
 
-            var handler = new DeleteSaleHandler(_logger, _serviceProvider);
+            var handler = new DeleteSaleHandler(_logger, _saleRepository);
 
             await handler.Handle(new DeleteSaleCommand(1), CancellationToken.None);
         }

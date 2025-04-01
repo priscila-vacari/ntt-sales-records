@@ -68,7 +68,7 @@ namespace Sales.Tests.Application.Handlers
             _saleItemRepository.DeleteRangeAsync(Arg.Any<List<SaleItem>>()).Returns(Task.CompletedTask);
             _saleRepository.UpdateAsync(Arg.Any<Sale>()).Returns(Task.CompletedTask);
 
-            var handler = new UpdateSaleHandler(_logger, _mapper, _discountFactory, _serviceProvider);
+            var handler = new UpdateSaleHandler(_logger, _mapper, _discountFactory, _saleRepository, _saleItemRepository);
 
             _mapper.Map(Arg.Any<SaleDTO>(), Arg.Any<Sale>()).Returns(sale); 
 
@@ -87,7 +87,7 @@ namespace Sales.Tests.Application.Handlers
             Sale? sale = null;
             _saleRepository.GetByIdAsyncIncludes(Arg.Any<int>(), Arg.Any<Expression<Func<Sale, object>>[]>()).Returns(Task.FromResult(sale));
 
-            var handler = new UpdateSaleHandler(_logger, _mapper, _discountFactory, _serviceProvider);
+            var handler = new UpdateSaleHandler(_logger, _mapper, _discountFactory, _saleRepository, _saleItemRepository);
 
             var exception = await Assert.ThrowsAsync<NotFoundException>(() => handler.Handle(saleRequest, CancellationToken.None));
             Assert.Equal("Venda não encontrada para o id.", exception.Message);
@@ -121,7 +121,7 @@ namespace Sales.Tests.Application.Handlers
             _saleItemRepository.DeleteRangeAsync(Arg.Any<List<SaleItem>>()).Returns(Task.CompletedTask);
             _saleRepository.UpdateAsync(Arg.Any<Sale>()).Returns(Task.CompletedTask);
 
-            var handler = new UpdateSaleHandler(_logger, _mapper, _discountFactory, _serviceProvider);
+            var handler = new UpdateSaleHandler(_logger, _mapper, _discountFactory, _saleRepository, _saleItemRepository);
             _discountFactory.CreateStrategy(Arg.Any<int>()).Returns(discountStrategy);
 
             _mapper.Map(Arg.Any<SaleDTO>(), Arg.Any<Sale>()).Returns(sale);

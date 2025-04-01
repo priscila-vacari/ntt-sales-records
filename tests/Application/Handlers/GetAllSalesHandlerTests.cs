@@ -50,7 +50,7 @@ namespace Sales.Tests.Application.Handlers
 
             _mapper.Map<IEnumerable<SaleDTO>>(sales).Returns(salesDto);
 
-            var handler = new GetAllSalesHandler(_logger, _mapper, _serviceProvider);
+            var handler = new GetAllSalesHandler(_logger, _mapper, _saleRepository);
             var query = new GetAllSalesQuery(1, 1, ["-branch", "number"], null, null, null, null, null, null);
 
             var result = await handler.Handle(query, CancellationToken.None);
@@ -67,7 +67,7 @@ namespace Sales.Tests.Application.Handlers
             List<Sale> sales = new();
             _saleRepository.GetSalesAsync(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<string[]>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<bool?>(), Arg.Any<decimal?>(), Arg.Any<decimal?>(), Arg.Any<Expression<Func<Sale, object>>[]>()).Returns(sales);
 
-            var handler = new GetAllSalesHandler(_logger, _mapper, _serviceProvider);
+            var handler = new GetAllSalesHandler(_logger, _mapper, _saleRepository);
             var query = new GetAllSalesQuery(1, 1, ["-branch", "number"], null, null, null, null, null, null);
 
             var exception = await Assert.ThrowsAsync<NotFoundException>(() => handler.Handle(query, CancellationToken.None));
